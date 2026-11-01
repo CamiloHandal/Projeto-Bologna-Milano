@@ -5,20 +5,26 @@ desenvolvido em Java na disciplina SPOTDES.
 
 ## Etapa atual
 
-Etapa 1 — Estrutura inicial, Main e menu.
+Etapa 2 — Classes Jogador e Cidade.
 
 ## Funcionalidades implementadas
 
-- Menu principal com três opções:
+- Menu principal com quatro opções:
   - 1: Novo jogo.
-  - 2: Sobre o jogo.
+  - 2: Ver status da cidade.
+  - 3: Sobre o jogo.
   - 0: Sair.
-- Tratamento de entradas inválidas.
-- Repetição do menu até a escolha da opção 0.
-- Separação de responsabilidades entre Main e Menu.
+- Tratamento de opções inválidas.
+- Criação de jogador com nome e título inicial "Cavaleiro".
+- Criação de cidade com nome, governante e ano inicial 1400.
+- Exibição do status inicial ao criar um jogo.
+- Consulta ao status da cidade pelo menu.
+- Aviso ao consultar o status sem iniciar um jogo.
+- Diagrama de classes cumulativo na pasta uml/.
+- Diagrama de casos de uso na pasta casos-de-uso/.
 
-A opção Novo jogo exibe uma mensagem provisória.
-A criação do jogo será implementada na Etapa 2.
+O método avancarAno() está implementado, mas ainda não é
+utilizado pelo menu.
 
 ## Requisitos
 

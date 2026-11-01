@@ -7,6 +7,9 @@ public class Menu {
     private Scanner scanner = new Scanner(System.in);
     private boolean emExecucao = true;
 
+    private Jogador jogador;
+    private Cidade cidade;
+
     public void executar() {
         while (emExecucao) {
             exibirOpcoes();
@@ -24,7 +27,8 @@ public class Menu {
         System.out.println(" Um jogo de estratégia econômica medieval");
         System.out.println("==========================================");
         System.out.println("1 - Novo jogo");
-        System.out.println("2 - Sobre o jogo");
+        System.out.println("2 - Ver status da cidade");
+        System.out.println("3 - Sobre o jogo");
         System.out.println("0 - Sair");
         System.out.print("Escolha uma opção: ");
     }
@@ -42,13 +46,20 @@ public class Menu {
     private void processarOpcao(int opcao) {
         switch (opcao) {
             case 1:
-                System.out.println();
-                System.out.println(
-                    "Novo jogo: funcionalidade disponível na Etapa 2."
-                );
+                iniciarNovoJogo();
                 break;
 
             case 2:
+                if (cidade == null) {
+                    System.out.println(
+                        "Nenhum jogo iniciado. Escolha 1 para começar."
+                    );
+                } else {
+                    cidade.exibirStatus();
+                }
+                break;
+
+            case 3:
                 exibirSobre();
                 break;
 
@@ -59,10 +70,27 @@ public class Menu {
 
             default:
                 System.out.println(
-                    "Opção inválida! Digite 1, 2 ou 0."
+                    "Opção inválida! Digite 1, 2, 3 ou 0."
                 );
                 break;
         }
+    }
+
+    private void iniciarNovoJogo() {
+        System.out.println();
+        System.out.println("========== NOVO JOGO ==========");
+
+        System.out.print("Digite o nome do jogador: ");
+        String nomeJogador = scanner.nextLine().trim();
+
+        System.out.print("Digite o nome da cidade: ");
+        String nomeCidade = scanner.nextLine().trim();
+
+        jogador = new Jogador(nomeJogador);
+        cidade = new Cidade(nomeCidade, jogador);
+
+        System.out.println("Novo jogo iniciado!");
+        cidade.exibirStatus();
     }
 
     private void exibirSobre() {

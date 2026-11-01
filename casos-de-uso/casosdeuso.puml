@@ -1,0 +1,18 @@
+@startuml
+left to right direction
+
+actor "Jogador" as jogador
+
+rectangle "Bolonha e Milano" {
+    usecase "Iniciar novo jogo" as iniciar
+    usecase "Ver status da cidade" as status
+    usecase "Ver informações sobre o jogo" as sobre
+    usecase "Sair do jogo" as sair
+}
+
+jogador -- iniciar
+jogador -- status
+jogador -- sobre
+jogador -- sair
+
+@enduml
