@@ -10,12 +10,20 @@ class Menu {
     - emExecucao: boolean
     - jogador: Jogador
     - cidade: Cidade
+    - mercado: Mercado
 
     + executar(): void
     - exibirOpcoes(): void
     - lerOpcao(): int
     - processarOpcao(opcao: int): void
     - iniciarNovoJogo(): void
+    - exibirStatus(): void
+    - abrirMercado(): void
+    - lerQuantidade(): int
+    - comprarGraos(): void
+    - venderGraos(): void
+    - comprarTerras(): void
+    - venderTerras(): void
     - exibirSobre(): void
 }
 
@@ -26,21 +34,51 @@ class Jogador {
     + Jogador(nome: String)
     + getNome(): String
     + getTitulo(): String
+    + setTitulo(titulo: String): void
 }
 
 class Cidade {
     - nome: String
     - anoAtual: int
     - dono: Jogador
+    - florins: int
+    - terras: int
+    - graos: int
 
     + Cidade(nome: String, dono: Jogador)
+    + getNome(): String
+    + getAnoAtual(): int
+    + getDono(): Jogador
+    + getFlorins(): int
+    + getTerras(): int
+    + getGraos(): int
     + avancarAno(): void
+    + adicionarFlorins(quantidade: int): void
+    + removerFlorins(quantidade: int): boolean
+    + adicionarTerras(quantidade: int): void
+    + removerTerras(quantidade: int): boolean
+    + adicionarGraos(quantidade: int): void
+    + removerGraos(quantidade: int): boolean
     + exibirStatus(): void
+}
+
+class Mercado {
+    - {static} PRECO_GRAO: int = 2 {readOnly}
+    - {static} PRECO_TERRA: int = 10 {readOnly}
+
+    + getPrecoGrao(): int
+    + getPrecoTerra(): int
+    + comprarGraos(cidade: Cidade, quantidade: int): boolean
+    + venderGraos(cidade: Cidade, quantidade: int): boolean
+    + comprarTerras(cidade: Cidade, quantidade: int): boolean
+    + venderTerras(cidade: Cidade, quantidade: int): boolean
 }
 
 Main ..> Menu : cria e usa
 Menu --> "0..1" Jogador : jogador
 Menu --> "0..1" Cidade : cidade
+Menu --> "1" Mercado : mercado
 Cidade --> "1" Jogador : dono
+Mercado ..> Cidade : recebe nas operações
 
 @enduml

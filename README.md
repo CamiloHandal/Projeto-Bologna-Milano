@@ -5,26 +5,39 @@ desenvolvido em Java na disciplina SPOTDES.
 
 ## Etapa atual
 
-Etapa 2 — Classes Jogador e Cidade.
+Etapa 3 — Economia: florins, terras e grãos.
 
 ## Funcionalidades implementadas
 
-- Menu principal com quatro opções:
-  - 1: Novo jogo.
-  - 2: Ver status da cidade.
-  - 3: Sobre o jogo.
-  - 0: Sair.
-- Tratamento de opções inválidas.
-- Criação de jogador com nome e título inicial "Cavaleiro".
-- Criação de cidade com nome, governante e ano inicial 1400.
-- Exibição do status inicial ao criar um jogo.
-- Consulta ao status da cidade pelo menu.
-- Aviso ao consultar o status sem iniciar um jogo.
-- Diagrama de classes cumulativo na pasta uml/.
-- Diagrama de casos de uso na pasta casos-de-uso/.
+- Criação de jogador e cidade.
+- Título inicial do jogador: Cavaleiro.
+- Ano inicial da cidade: 1400.
+- Recursos iniciais:
+  - 1000 florins.
+  - 10000 hectares de terras.
+  - 500 unidades de grãos.
+- Consulta ao status da cidade.
+- Mercado com compra e venda de grãos e terras.
+- Validação de quantidades e de recursos disponíveis.
+- Proteção contra saldos negativos e estouro dos recursos do tipo int.
+- Submenu de mercado que permite realizar várias operações.
+- Diagramas cumulativos de classes e casos de uso na pasta uml/.
 
-O método avancarAno() está implementado, mas ainda não é
-utilizado pelo menu.
+## Preços adotados nesta implementação
+
+O material exige preços fixos, mas não especifica seus valores.
+
+- Grãos: 2 florins por unidade.
+- Terras: 10 florins por hectare.
+
+Os preços de compra e venda são iguais e ficam definidos nas
+constantes PRECO_GRAO e PRECO_TERRA da classe Mercado.
+
+## Organização
+
+- src/bolonhaemilano/: código-fonte Java.
+- uml/: diagramas de classes e casos de uso.
+- bin/: arquivos compilados, ignorados pelo Git.
 
 ## Requisitos
 

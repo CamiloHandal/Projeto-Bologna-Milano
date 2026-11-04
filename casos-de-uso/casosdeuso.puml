@@ -6,13 +6,25 @@ actor "Jogador" as jogador
 rectangle "Bolonha e Milano" {
     usecase "Iniciar novo jogo" as iniciar
     usecase "Ver status da cidade" as status
+    usecase "Acessar mercado" as mercado
     usecase "Ver informações sobre o jogo" as sobre
     usecase "Sair do jogo" as sair
+
+    usecase "Comprar grãos" as comprarGraos
+    usecase "Vender grãos" as venderGraos
+    usecase "Comprar terras" as comprarTerras
+    usecase "Vender terras" as venderTerras
 }
 
 jogador -- iniciar
 jogador -- status
+jogador -- mercado
 jogador -- sobre
 jogador -- sair
+
+comprarGraos ..> mercado : <<extend>>
+venderGraos ..> mercado : <<extend>>
+comprarTerras ..> mercado : <<extend>>
+venderTerras ..> mercado : <<extend>>
 
 @enduml
